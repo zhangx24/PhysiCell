@@ -564,7 +564,7 @@ void add_BioFVM_substrates_to_open_xml_pugi( pugi::xml_document& xml_dom , std::
 		// if Cartesian, add the x, y, and z coordinates 
 		if( M.mesh.Cartesian_mesh == true )
 		{
-			char temp [10240];
+			char temp [1024000];
 			int position = 0; 
 			for( unsigned int k=0 ; k < M.mesh.x_coordinates.size()-1 ; k++ )
 			{ position += sprintf( temp+position, "%f " , M.mesh.x_coordinates[k] ); }

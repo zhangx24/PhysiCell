@@ -1707,10 +1707,10 @@ std::vector<std::string> paint_by_number_cell_coloring( Cell* pCell )
 	{
 		colors.push_back( "grey" ); // default color will be grey 
 
-		colors.push_back( "red" );
 		colors.push_back( "yellow" ); 	
 		colors.push_back( "green" ); 	
 		colors.push_back( "blue" ); 
+		colors.push_back( "red" );
 		
 		colors.push_back( "magenta" ); 	
 		colors.push_back( "orange" ); 	
