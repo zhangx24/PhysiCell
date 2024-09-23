@@ -264,7 +264,7 @@
                     <attack_rates>
                         <attack_rate name="TU" units="1/min">0.0</attack_rate>
                         <attack_rate name="Mph" units="1/min">0.0</attack_rate>
-                        <attack_rate name="Tcell" units="1/min">1</attack_rate>
+                        <attack_rate name="Tcell" units="1/min">0.0</attack_rate>
                         <attack_rate name="Texh" units="1/min">0.0</attack_rate>
                         <attack_rate name="EC" units="1/min">0.0</attack_rate>
                     </attack_rates>
@@ -984,7 +984,7 @@
         <Tcell_transform_max type="double" units="/min" description="maximum transformation rate Tcell to Texh">0.17</Tcell_transform_max>
         <Tcell_transform_halfmax type="double" units="" description="half_max for Tcell transformation rule: combined of attack_TU and contact_Mph_EC">5</Tcell_transform_halfmax>
         <Tcell_transform_hillpower type="double" units="" description="hill_power for Tcell transformation rule">20</Tcell_transform_hillpower>
-        <Mph_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph">0</Mph_AI>
+        <Mph_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph">1</Mph_AI>
         <EC_AI type="double" units="expression" description="turns on antiinflammatory effect of EC">0</EC_AI>
         <CP type="double" units="expression" description="expression of checkpoint molecule on Tcell (1=expressed, 0=blocked by checkpoint inhibitor)">1</CP>
         <number_of_cells type="int" units="" description="">0</number_of_cells>

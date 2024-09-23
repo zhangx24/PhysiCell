@@ -223,7 +223,7 @@ void Tcell_exhaustion(Cell*pCell , Phenotype& phenotype, double dt)
 	double CP = parameters.doubles("CP");
 
 	double contact_Mph_EC = get_single_signal(pCell, "contact with Mph")*Mph_AI + get_single_signal(pCell, "contact with EC")*EC_AI; //contact with Mph or EC affects Tcell exhaustion, depndent on Mph_AI or EC_AI expression (simulates secretion of anti-inflammatory factors by Mph or EC)
-	double attack_TU = (get_single_signal(pCell, "total attack time")/60)*CP; //attack by tumor cells affects Tcell exhaustion, dependent on CP expression (simulates checkpoint expression on Tcells), one attack duration = 60min, so one attack = total attack time/60
+	double attack_TU = (get_single_signal(pCell, "damage delivered")/60)*CP; //attacking tumor cells affects Tcell exhaustion, dependent on CP expression (simulates checkpoint expression on Tcells), one attack duration = 60min, attack_damage_rate = 1/min, so one attack delivers 60 damage, /60 for one attack
 	double exhaustion_parameter = contact_Mph_EC + attack_TU; //exhaustion parameter combined value of contact with Mph/EC and attack with tumor cells
 
 	double max_transform_rate = parameters.doubles("Tcell_transform_max"); 
