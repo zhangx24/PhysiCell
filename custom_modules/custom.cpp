@@ -215,7 +215,7 @@ void contact_function( Cell* pMe, Phenotype& phenoMe , Cell* pOther, Phenotype& 
 void Tcell_exhaustion(Cell*pCell , Phenotype& phenotype, double dt)
 {
 //contact to Mph or EC induces transformation to Texh, if MphAI = 1 or EC_AI=1
-//attack time with TU induces transformation to Texh, if cpR = 1 on Tcells
+//attack time with TU induces transformation to Texh, if CP = 1 on Tcells
 
 
 	double Mph_AI = parameters.doubles("Mph_AI");

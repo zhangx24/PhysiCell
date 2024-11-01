@@ -1,0 +1,14 @@
+Cell Hypothesis Rules (detailed)
+
+In TU cells:
+dead increases debris secretion from 0 towards 1 with a Hill response, with half-max 0.5 and Hill power 10. Rule applies to dead cells.
+damage increases necrosis from 0 towards 0.17 with a Hill response, with half-max 50 and Hill power 20.
+
+In Mph cells:
+
+In Tcell cells:
+
+In Texh cells:
+
+In EC cells:
+
