@@ -27,7 +27,7 @@
     </parallel>
 
     <save>
-        <folder>./output/simulation_set/explant</folder>
+        <folder>./output/Mmel_base_3_001/explant</folder>
         <full_data>
             <interval units="min">60</interval>
             <enable>true</enable>
