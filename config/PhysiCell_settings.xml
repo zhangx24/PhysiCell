@@ -122,6 +122,7 @@
             </model>
           </death>
 
+<<<<<<< HEAD
           <volume>
             <total units="micron^3">2494</total>
             <fluid_fraction units="dimensionless">0.75</fluid_fraction>
@@ -133,6 +134,17 @@
             <calcification_rate units="1/min">0</calcification_rate>
             <relative_rupture_volume units="dimensionless">2.0</relative_rupture_volume>
           </volume>
+=======
+    <cell_rules>
+        <rulesets>
+            <ruleset protocol="CBHG" version="3.0" format="csv" enabled="true">
+                <folder>./config</folder>
+                <filename>cell_rules_v2.csv</filename>
+            </ruleset>
+        </rulesets>
+        <settings />
+    </cell_rules>
+>>>>>>> master
 
           <mechanics>
             <cell_cell_adhesion_strength units="micron/min">0.4</cell_cell_adhesion_strength>
