@@ -23,17 +23,17 @@
     </overall>
 
     <parallel>
-        <omp_num_threads>12</omp_num_threads>
+        <omp_num_threads>7</omp_num_threads>
     </parallel>
 
     <save>
-        <folder>./output/simulation_set/explant</folder>
+        <folder>./output/Lumi_base_4_001/explant</folder>
         <full_data>
-            <interval units="min">60</interval>
+            <interval units="min">1440</interval>
             <enable>true</enable>
         </full_data>
         <SVG>
-            <interval units="min">60</interval>
+            <interval units="min">1440</interval>
             <enable>true</enable>
             <plot_substrate enabled="false" limits="false">
                 <substrate>T_chem</substrate>
@@ -1001,7 +1001,7 @@
     <initial_conditions>
         <cell_positions type="csv" enabled="true">
             <folder>./PhysiCell/config/position</folder>
-            <filename>explant_position.csv</filename>
+            <filename>explant.csv</filename>
         </cell_positions>
     </initial_conditions>
 

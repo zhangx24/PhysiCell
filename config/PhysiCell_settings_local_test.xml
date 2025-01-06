@@ -1,10 +1,10 @@
 <PhysiCell_settings version="devel-version">
 
     <domain>
-        <x_min>-8000</x_min>
-        <x_max>8000</x_max>
-        <y_min>-8000</y_min>
-        <y_max>8000</y_max>
+        <x_min>-5000</x_min>
+        <x_max>5000</x_max>
+        <y_min>-5000</y_min>
+        <y_max>5000</y_max>
         <z_min>-10</z_min>
         <z_max>10</z_max>
         <dx>20</dx>
@@ -14,7 +14,7 @@
     </domain>
 
     <overall>
-        <max_time units="min">43200.0</max_time>
+        <max_time units="min">1440.0</max_time>
         <time_units>min</time_units>
         <space_units>micron</space_units>
         <dt_diffusion units="min">0.01</dt_diffusion>
@@ -27,7 +27,7 @@
     </parallel>
 
     <save>
-        <folder>./output/simulation_set/explant</folder>
+        <folder>C:/Users/xinwe/Github/PhysiCell/output</folder>
         <full_data>
             <interval units="min">60</interval>
             <enable>true</enable>
@@ -1000,15 +1000,15 @@
 
     <initial_conditions>
         <cell_positions type="csv" enabled="true">
-            <folder>./PhysiCell/config/position</folder>
-            <filename>explant_position.csv</filename>
+            <folder>C:/Users/xinwe/Github/PhysiCell/config</folder>
+            <filename>Lumi002_t.csv</filename>
         </cell_positions>
     </initial_conditions>
 
     <cell_rules>
         <rulesets>
             <ruleset protocol="CBHG" version="3.0" format="csv" enabled="true">
-                <folder>./PhysiCell/config</folder>
+                <folder>C:/Users/xinwe/Github/PhysiCell/config</folder>
                 <filename>cell_rules.csv</filename>
             </ruleset>
         </rulesets>

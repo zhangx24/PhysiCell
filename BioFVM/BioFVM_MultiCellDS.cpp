@@ -570,42 +570,9 @@ void add_BioFVM_substrates_to_open_xml_pugi( pugi::xml_document& xml_dom , std::
 		// if Cartesian, add the x, y, and z coordinates 
 		if( M.mesh.Cartesian_mesh == true )
 		{
-<<<<<<< HEAD
-			char temp [1024000];
-			int position = 0; 
-			for( unsigned int k=0 ; k < M.mesh.x_coordinates.size()-1 ; k++ )
-			{ position += sprintf( temp+position, "%f " , M.mesh.x_coordinates[k] ); }
-			sprintf( temp+position , "%f" , M.mesh.x_coordinates[ M.mesh.x_coordinates.size()-1] ); 
-			node = node.append_child( "x_coordinates" ); 
-			node.append_child( pugi::node_pcdata ).set_value( temp ); 
-			attrib = node.append_attribute("delimiter");
-			attrib.set_value( " " ); 
-			
-			node = node.parent();
-			position = 0; 
-			for( unsigned int k=0 ; k < M.mesh.y_coordinates.size()-1 ; k++ )
-			{ position += sprintf( temp+position, "%f " , M.mesh.y_coordinates[k] ); }
-			sprintf( temp+position , "%f" , M.mesh.y_coordinates[ M.mesh.y_coordinates.size()-1] ); 
-			node = node.append_child( "y_coordinates" ); 
-			node.append_child( pugi::node_pcdata ).set_value( temp ); 
-			attrib = node.append_attribute("delimiter");
-			attrib.set_value( " " ); 
-			
-			node = node.parent();
-			position = 0; 
-			for( unsigned int k=0 ; k < M.mesh.z_coordinates.size()-1 ; k++ )
-			{ position += sprintf( temp+position, "%f " , M.mesh.z_coordinates[k] ); }
-			sprintf( temp+position , "%f" , M.mesh.z_coordinates[ M.mesh.z_coordinates.size()-1] ); 
-			node = node.append_child( "z_coordinates" ); 
-			node.append_child( pugi::node_pcdata ).set_value( temp ); 
-			attrib = node.append_attribute("delimiter");
-			attrib.set_value( " " ); 
-			node = node.parent(); 
-=======
 			write_coordinates_node(node, M.mesh.x_coordinates, "x_coordinates");
 			write_coordinates_node(node, M.mesh.y_coordinates, "y_coordinates");
 			write_coordinates_node(node, M.mesh.z_coordinates, "z_coordinates");
->>>>>>> master
 		}
 		// write out the voxels -- minimal data, even if redundant for cartesian 
 		if( save_mesh_as_matlab == false )
@@ -613,7 +580,7 @@ void add_BioFVM_substrates_to_open_xml_pugi( pugi::xml_document& xml_dom , std::
 			node = node.append_child( "voxels" ); 
 			attrib = node.append_attribute("type");
 			attrib.set_value( "xml" ); 
-			char temp [1024]; 
+			char temp [102400]; 
 			for( unsigned int k=0; k < M.mesh.voxels.size() ; k++ )
 			{
 				node = node.append_child( "voxel" );
