@@ -1,10 +1,10 @@
 <PhysiCell_settings version="devel-version">
 
     <domain>
-        <x_min>-8000</x_min>
-        <x_max>8000</x_max>
-        <y_min>-8000</y_min>
-        <y_max>8000</y_max>
+        <x_min>-1000</x_min>
+        <x_max>1000</x_max>
+        <y_min>-1000</y_min>
+        <y_max>1000</y_max>
         <z_min>-10</z_min>
         <z_max>10</z_max>
         <dx>20</dx>
@@ -14,7 +14,7 @@
     </domain>
 
     <overall>
-        <max_time units="min">43200.0</max_time>
+        <max_time units="min">28800.0</max_time>
         <time_units>min</time_units>
         <space_units>micron</space_units>
         <dt_diffusion units="min">0.01</dt_diffusion>
@@ -27,13 +27,13 @@
     </parallel>
 
     <save>
-        <folder>./output/simulation_set/explant</folder>
+        <folder>C:/Users/xinwe/Github/PhysiCell/output/Lumi_test_03</folder>
         <full_data>
-            <interval units="min">60</interval>
+            <interval units="min">720</interval>
             <enable>true</enable>
         </full_data>
         <SVG>
-            <interval units="min">60</interval>
+            <interval units="min">720</interval>
             <enable>true</enable>
             <plot_substrate enabled="false" limits="false">
                 <substrate>T_chem</substrate>
@@ -372,7 +372,7 @@
                         <cell_adhesion_affinity name="Mph_TU">1</cell_adhesion_affinity>
                     </cell_adhesion_affinities>
                     <options>
-                        <set_relative_equilibrium_distance enabled="false" units="dimensionless">1.8</set_relative_equilibrium_distance>
+                        <set_relative_equilibrium_distance enabled="false" units="dimensionless">2</set_relative_equilibrium_distance>
                         <set_absolute_equilibrium_distance enabled="false" units="micron">15.12</set_absolute_equilibrium_distance>
                     </options>
                     <attachment_elastic_constant units="1/min">0.0</attachment_elastic_constant>
@@ -383,7 +383,7 @@
                 <motility>
                     <speed units="micron/min">0.3</speed>
                     <persistence_time units="min">30</persistence_time>
-                    <migration_bias units="dimensionless">0.8</migration_bias>
+                    <migration_bias units="dimensionless">0.5</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -556,7 +556,7 @@
                 <motility>
                     <speed units="micron/min">2.0</speed>
                     <persistence_time units="min">120</persistence_time>
-                    <migration_bias units="dimensionless">0.8</migration_bias>
+                    <migration_bias units="dimensionless">0.5</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -729,7 +729,7 @@
                 <motility>
                     <speed units="micron/min">0.5</speed>
                     <persistence_time units="min">15</persistence_time>
-                    <migration_bias units="dimensionless">0.8</migration_bias>
+                    <migration_bias units="dimensionless">0.5</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -891,7 +891,7 @@
                         <cell_adhesion_affinity name="Mph_TU">1</cell_adhesion_affinity>
                     </cell_adhesion_affinities>
                     <options>
-                        <set_relative_equilibrium_distance enabled="false" units="dimensionless">1.8</set_relative_equilibrium_distance>
+                        <set_relative_equilibrium_distance enabled="false" units="dimensionless">2</set_relative_equilibrium_distance>
                         <set_absolute_equilibrium_distance enabled="false" units="micron">15.12</set_absolute_equilibrium_distance>
                     </options>
                     <attachment_elastic_constant units="1/min">0.0</attachment_elastic_constant>
@@ -902,7 +902,7 @@
                 <motility>
                     <speed units="micron/min">0.3</speed>
                     <persistence_time units="min">30</persistence_time>
-                    <migration_bias units="dimensionless">0.8</migration_bias>
+                    <migration_bias units="dimensionless">0.5</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -1000,15 +1000,15 @@
 
     <initial_conditions>
         <cell_positions type="csv" enabled="true">
-            <folder>./PhysiCell/config/position</folder>
-            <filename>explant_position.csv</filename>
+            <folder>C:/Users/xinwe/Github/PhysiCell/config</folder>
+            <filename>Lumi_test_positions.csv</filename>
         </cell_positions>
     </initial_conditions>
 
     <cell_rules>
         <rulesets>
             <ruleset protocol="CBHG" version="3.0" format="csv" enabled="true">
-                <folder>./PhysiCell/config</folder>
+                <folder>C:/Users/xinwe/Github/PhysiCell/config</folder>
                 <filename>cell_rules.csv</filename>
             </ruleset>
         </rulesets>
@@ -1020,8 +1020,8 @@
         <Tcell_transform_halfmax type="double" units="" description="half_max for Tcell transformation rule: combined of attack_TU and contact_Mph_EC">5</Tcell_transform_halfmax>
         <Tcell_transform_hillpower type="double" units="" description="hill_power for Tcell transformation rule">20</Tcell_transform_hillpower>
         <Mph_TU_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_TU">1</Mph_TU_AI>
-        <Mph_IM_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_IM">0</Mph_IM_AI>
-        <CP type="double" units="expression" description="expression of checkpoint molecule on Tcell (1=expressed, 0=blocked by checkpoint inhibitor)">0</CP>
+        <Mph_IM_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_IM">1</Mph_IM_AI>
+        <CP type="double" units="expression" description="expression of checkpoint molecule on Tcell (1=expressed, 0=blocked by checkpoint inhibitor)">1</CP>
         <number_of_cells type="int" units="" description="">0</number_of_cells>
     </user_parameters>
 </PhysiCell_settings>
