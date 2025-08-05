@@ -14,7 +14,7 @@
     </domain>
 
     <overall>
-        <max_time units="min">28800.0</max_time>
+        <max_time units="min">2880</max_time>
         <time_units>min</time_units>
         <space_units>micron</space_units>
         <dt_diffusion units="min">0.01</dt_diffusion>
@@ -27,13 +27,13 @@
     </parallel>
 
     <save>
-        <folder>C:/Users/xinwe/Github/PhysiCell/output/Lumi_test_03</folder>
+        <folder>C:/Users/xinwe/Github/PhysiCell/output/Lumi_test_01</folder>
         <full_data>
-            <interval units="min">720</interval>
+            <interval units="min">320</interval>
             <enable>true</enable>
         </full_data>
         <SVG>
-            <interval units="min">720</interval>
+            <interval units="min">320</interval>
             <enable>true</enable>
             <plot_substrate enabled="false" limits="false">
                 <substrate>T_chem</substrate>
@@ -56,7 +56,7 @@
     <microenvironment_setup>
         <variable name="T_chem" units="dimensionless" ID="0">
             <physical_parameter_set>
-                <diffusion_coefficient units="micron^2/min">1000</diffusion_coefficient>
+                <diffusion_coefficient units="micron^2/min">50</diffusion_coefficient>
                 <decay_rate units="1/min">0</decay_rate>
             </physical_parameter_set>
             <initial_condition units="pg">0</initial_condition>
@@ -72,7 +72,7 @@
         </variable>
         <variable name="Mph_chem" units="dimensionless" ID="1">
             <physical_parameter_set>
-                <diffusion_coefficient units="micron^2/min">1000</diffusion_coefficient>
+                <diffusion_coefficient units="micron^2/min">50</diffusion_coefficient>
                 <decay_rate units="1/min">0</decay_rate>
             </physical_parameter_set>
             <initial_condition units="pg">0</initial_condition>
@@ -116,6 +116,22 @@
                 <boundary_value ID="ymax" enabled="False" />
                 <boundary_value ID="zmin" enabled="False" />
                 <boundary_value ID="zmax" enabled="False" />
+            </Dirichlet_options>
+        </variable>
+        <variable name="cyt_a" units="dimensionless" ID="4">
+            <physical_parameter_set>
+                <diffusion_coefficient units="micron^2/min">50</diffusion_coefficient>
+                <decay_rate units="1/min">0</decay_rate>
+            </physical_parameter_set>
+            <initial_condition units="pg">1.4e-7</initial_condition>
+            <Dirichlet_boundary_condition units="pg" enabled="True">0</Dirichlet_boundary_condition>
+            <Dirichlet_options>
+                <boundary_value ID="xmin" enabled="True">0</boundary_value>
+                <boundary_value ID="xmax" enabled="True">0</boundary_value>
+                <boundary_value ID="ymin" enabled="True">0</boundary_value>
+                <boundary_value ID="ymax" enabled="True">0</boundary_value>
+                <boundary_value ID="zmin" enabled="False">0</boundary_value>
+                <boundary_value ID="zmax" enabled="False">0</boundary_value>
             </Dirichlet_options>
         </variable>
         <options>
@@ -227,6 +243,7 @@
                                 <chemotactic_sensitivity substrate="Mph_chem">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="T_cyt">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="debris">0.0</chemotactic_sensitivity>
+                                <chemotactic_sensitivity substrate="cyt_a">0.0</chemotactic_sensitivity>
                             </chemotactic_sensitivities>
                         </advanced_chemotaxis>
                     </options>
@@ -247,13 +264,19 @@
                     <substrate name="T_cyt">
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
-                        <uptake_rate units="1/min">3.5e-7</uptake_rate>
+                        <uptake_rate units="1/min">3.17e-06</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
                     <substrate name="debris">
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">1.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
+                        <net_export_rate units="total substrate/min">0.0</net_export_rate>
+                    </substrate>
+                    <substrate name="cyt_a">
+                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_target units="substrate density">0</secretion_target>
+                        <uptake_rate units="1/min">0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
                 </secretion>
@@ -300,7 +323,8 @@
                 </cell_integrity>
             </phenotype>
             <custom_data>
-          </custom_data>
+                <chem_r conserved="false" units="" description="">0.0</chem_r>
+            </custom_data>
             <initial_parameter_distributions enabled="false">
           </initial_parameter_distributions>
         </cell_definition>
@@ -383,7 +407,7 @@
                 <motility>
                     <speed units="micron/min">0.3</speed>
                     <persistence_time units="min">30</persistence_time>
-                    <migration_bias units="dimensionless">0.5</migration_bias>
+                    <migration_bias units="dimensionless">0.2</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -400,13 +424,14 @@
                                 <chemotactic_sensitivity substrate="Mph_chem">4</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="T_cyt">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="debris">6</chemotactic_sensitivity>
+                                <chemotactic_sensitivity substrate="cyt_a">0.0</chemotactic_sensitivity>
                             </chemotactic_sensitivities>
                         </advanced_chemotaxis>
                     </options>
                 </motility>
                 <secretion>
                     <substrate name="T_chem">
-                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_rate units="1/min">1.02e-06</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
@@ -426,6 +451,12 @@
                     <substrate name="debris">
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
+                        <net_export_rate units="total substrate/min">0.0</net_export_rate>
+                    </substrate>
+                    <substrate name="cyt_a">
+                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_target units="substrate density">1.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
@@ -473,7 +504,8 @@
                 </cell_integrity>
             </phenotype>
             <custom_data>
-          </custom_data>
+                <chem_r conserved="false" units="" description="">1</chem_r>
+            </custom_data>
             <initial_parameter_distributions enabled="false">
           </initial_parameter_distributions>
         </cell_definition>
@@ -493,7 +525,7 @@
                 </cycle>
                 <death>
                     <model code="100" name="apoptosis">
-                        <death_rate units="1/min">0.00014</death_rate>
+                        <death_rate units="1/min">0.00023</death_rate>
                         <phase_durations units="min">
                             <duration index="0" fixed_duration="true">360</duration>
                         </phase_durations>
@@ -573,6 +605,7 @@
                                 <chemotactic_sensitivity substrate="Mph_chem">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="T_cyt">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="debris">0.0</chemotactic_sensitivity>
+                                <chemotactic_sensitivity substrate="cyt_a">0.0</chemotactic_sensitivity>
                             </chemotactic_sensitivities>
                         </advanced_chemotaxis>
                     </options>
@@ -591,7 +624,7 @@
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
                     <substrate name="T_cyt">
-                        <secretion_rate units="1/min">0</secretion_rate>
+                        <secretion_rate units="1/min">6.34e-06</secretion_rate>
                         <secretion_target units="substrate density">1.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
@@ -600,6 +633,12 @@
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
+                        <net_export_rate units="total substrate/min">0.0</net_export_rate>
+                    </substrate>
+                    <substrate name="cyt_a">
+                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_target units="substrate density">0</secretion_target>
+                        <uptake_rate units="1/min">1.4e-7</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
                 </secretion>
@@ -646,7 +685,8 @@
                 </cell_integrity>
             </phenotype>
             <custom_data>
-          </custom_data>
+                <chem_r conserved="false" units="" description="">0.0</chem_r>
+            </custom_data>
             <initial_parameter_distributions enabled="false">
           </initial_parameter_distributions>
         </cell_definition>
@@ -746,6 +786,7 @@
                                 <chemotactic_sensitivity substrate="Mph_chem">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="T_cyt">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="debris">0.0</chemotactic_sensitivity>
+                                <chemotactic_sensitivity substrate="cyt_a">0.0</chemotactic_sensitivity>
                             </chemotactic_sensitivities>
                         </advanced_chemotaxis>
                     </options>
@@ -772,6 +813,12 @@
                     <substrate name="debris">
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
+                        <net_export_rate units="total substrate/min">0.0</net_export_rate>
+                    </substrate>
+                    <substrate name="cyt_a">
+                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_target units="substrate density">1.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
@@ -819,7 +866,8 @@
                 </cell_integrity>
             </phenotype>
             <custom_data>
-          </custom_data>
+                <chem_r conserved="false" units="" description="">0.0</chem_r>
+            </custom_data>
             <initial_parameter_distributions enabled="false">
           </initial_parameter_distributions>
         </cell_definition>
@@ -902,7 +950,7 @@
                 <motility>
                     <speed units="micron/min">0.3</speed>
                     <persistence_time units="min">30</persistence_time>
-                    <migration_bias units="dimensionless">0.5</migration_bias>
+                    <migration_bias units="dimensionless">0.2</migration_bias>
                     <options>
                         <enabled>true</enabled>
                         <use_2D>true</use_2D>
@@ -919,13 +967,14 @@
                                 <chemotactic_sensitivity substrate="Mph_chem">4</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="T_cyt">0.0</chemotactic_sensitivity>
                                 <chemotactic_sensitivity substrate="debris">6</chemotactic_sensitivity>
+                                <chemotactic_sensitivity substrate="cyt_a">0.0</chemotactic_sensitivity>
                             </chemotactic_sensitivities>
                         </advanced_chemotaxis>
                     </options>
                 </motility>
                 <secretion>
                     <substrate name="T_chem">
-                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_rate units="1/min">1.02e-06</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
@@ -945,6 +994,12 @@
                     <substrate name="debris">
                         <secretion_rate units="1/min">0.0</secretion_rate>
                         <secretion_target units="substrate density">0.0</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
+                        <net_export_rate units="total substrate/min">0.0</net_export_rate>
+                    </substrate>
+                    <substrate name="cyt_a">
+                        <secretion_rate units="1/min">0.0</secretion_rate>
+                        <secretion_target units="substrate density">1.0</secretion_target>
                         <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0.0</net_export_rate>
                     </substrate>
@@ -992,7 +1047,8 @@
                 </cell_integrity>
             </phenotype>
             <custom_data>
-          </custom_data>
+                <chem_r conserved="false" units="" description="">1</chem_r>
+            </custom_data>
             <initial_parameter_distributions enabled="false">
           </initial_parameter_distributions>
         </cell_definition>
@@ -1017,11 +1073,11 @@
 
     <user_parameters>
         <Tcell_transform_max type="double" units="/min" description="maximum transformation rate Tcell to Texh">0.17</Tcell_transform_max>
-        <Tcell_transform_halfmax type="double" units="" description="half_max for Tcell transformation rule: combined of attack_TU and contact_Mph_EC">5</Tcell_transform_halfmax>
-        <Tcell_transform_hillpower type="double" units="" description="hill_power for Tcell transformation rule">20</Tcell_transform_hillpower>
-        <Mph_TU_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_TU">1</Mph_TU_AI>
-        <Mph_IM_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_IM">1</Mph_IM_AI>
-        <CP type="double" units="expression" description="expression of checkpoint molecule on Tcell (1=expressed, 0=blocked by checkpoint inhibitor)">1</CP>
+        <cyt_a_halfmax type="double" units="" description="halfmax of cyt_a for custom rule for transformation Tcell to Texh">1e-9</cyt_a_halfmax>
+        <Mph_TU_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_TU">0</Mph_TU_AI>
+        <Mph_IM_AI type="double" units="expression" description="turns on antiinflammatory effect of Mph_IM">0</Mph_IM_AI>
+        <CP type="double" units="expression" description="expression of checkpoint molecule on Tcell (1=expressed, 0=blocked by checkpoint inhibitor)">0</CP>
         <number_of_cells type="int" units="" description="">0</number_of_cells>
+        <p_cyt_a type="double" units="concentration" description="individually defined ">0.17</p_cyt_a>
     </user_parameters>
 </PhysiCell_settings>

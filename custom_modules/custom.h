@@ -90,6 +90,8 @@ void custom_function( Cell* pCell, Phenotype& phenotype , double dt );
 
 void contact_function( Cell* pMe, Phenotype& phenoMe , Cell* pOther, Phenotype& phenoOther , double dt ); 
 
-void Tcell_exhaustion( Cell*pCell , Phenotype& phenotype, double dt );
+void Teff_phenotype( Cell*pCell , Phenotype& phenotype, double dt );
+
+void Texh_phenotype( Cell*pCell , Phenotype& phenotype, double dt );
 
 std::vector<std::string> custom_coloring_function( Cell* pCell );
